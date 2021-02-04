@@ -8,17 +8,29 @@ class complex
     {
         a = x; b = y;
     }
-    void show_data()
-    {
-        cout<<"\n a = "<<a<<" b = "<<b<<"\n";
-    }
- 
+    friend istream& operator >>(istream&, complex&);
+    friend ostream& operator <<(ostream&, complex);
+   
 };
+ostream& operator<<(ostream &dout, complex c)
+{
+    dout<<"\n a= "<<c.a<<" b= "<<c.b<<"\n"; //cout<<"\n a= "<<c.a<<" b= "<<c.b<<"\n"; //cout and dout is same here
+    return(dout);
+}
+istream& operator>>(istream &din, complex &c)
+{
+    din>>c.a>>c.b; //cin>>c.a>>c.b; // cin and din is same here
+    return(din);
+}
 
 int main()
 {
     complex c1,c2,c3;
-    c1.set_data(3,4);
-    c2.set_data(4,4);
-    c1.show_data();
+    cout<<"enter a complex number ";
+    // operator>>(cin,c1);
+     cin>>c1;
+    cout<<"your entered number ";
+    // operator<<(cout,c1);
+    cout<<c1;
+
 } 
