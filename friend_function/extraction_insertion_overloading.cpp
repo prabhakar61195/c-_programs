@@ -8,16 +8,16 @@ class complex
     {
         a = x; b = y;
     }
-    friend istream& operator >>(istream&, complex&);
-    friend ostream& operator <<(ostream&, complex);
+    friend istream& operator >>(istream&, complex&); //used for cin 
+    friend ostream& operator <<(ostream&, complex); //used for cout //ostream is object of ostream
    
 };
-ostream& operator<<(ostream &dout, complex c)
+ostream& operator<<(ostream& dout, complex c)
 {
     dout<<"\n a= "<<c.a<<" b= "<<c.b<<"\n"; //cout<<"\n a= "<<c.a<<" b= "<<c.b<<"\n"; //cout and dout is same here
     return(dout);
 }
-istream& operator>>(istream &din, complex &c)
+istream& operator>>(istream& din, complex &c)
 {
     din>>c.a>>c.b; //cin>>c.a>>c.b; // cin and din is same here
     return(din);
